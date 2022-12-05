@@ -18,6 +18,10 @@ public class PlayerView : MonoBehaviour
     Button _defenceButton;
 
     [SerializeField]
+    [Header("ログテキスト")]
+    Text _logText;
+
+    [SerializeField]
     [Header("バトルシステム")]
     Battle _buttleSystem;
 
@@ -30,14 +34,21 @@ public class PlayerView : MonoBehaviour
     async void Attack()
     {
         _attackButton.interactable = false;
+        _defenceButton.interactable = false;
+        _logText.text = "Playerが敵に" +_buttleSystem.PlayerAttack.ToString() + "与えた";
         await _buttleSystem.Attack();
+        _logText.text = "敵がPlayerに" + _buttleSystem.EnemyAttack.ToString() + "与えた";
         _attackButton.interactable = true;
+        _defenceButton.interactable = true;
     }
 
     async void Defence()
     {
+        _attackButton.interactable = false;
         _defenceButton.interactable = false;
+        _logText.text = "防御した" + _buttleSystem.EnemyAttack.ToString() + "くらった";
         await _buttleSystem.Defence();
+        _attackButton.interactable = true;
         _defenceButton.interactable = true;
     }
 
