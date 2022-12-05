@@ -22,4 +22,9 @@ public class PlayerData : MonoBehaviour
         Hp.Value -= value;
     }
 
+    public void Defence(int value)
+    {
+        Hp.Value -= value;
+    }
+
 }

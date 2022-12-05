@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LifeView : MonoBehaviour
+public class EnemyView : MonoBehaviour
 {
     [SerializeField]
     [Header("体力スライダー")]

@@ -10,11 +10,20 @@ public class Presenter : MonoBehaviour
     PlayerData _playerData;
 
     [SerializeField]
-    [Header("ライフビュー")]
-    LifeView _lifeView;
+    [Header("エネミーデータ")]
+    EnemyData _enemyData;
+
+    [SerializeField]
+    [Header("プレイヤーライフビュー")]
+    PlayerView _playerView;
+
+    [SerializeField]
+    [Header("エネミーライフビュー")]
+    EnemyView _enemyView;
 
     void Start()
     {
-        _playerData.Hp.Subscribe(life => _lifeView.SetLife(life)).AddTo(this);
+        _playerData.Hp.Subscribe(life => _playerView.SetLife(life)).AddTo(this);
+        _enemyData.Hp.Subscribe(life => _enemyView.SetLife(life)).AddTo(this);
     }
 }
