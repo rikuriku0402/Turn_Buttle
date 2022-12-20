@@ -23,7 +23,7 @@ public class PlayerView : MonoBehaviour
 
     [SerializeField]
     [Header("ƒoƒgƒ‹ƒVƒXƒeƒ€")]
-    Battle _buttleSystem;
+    Battle _battleSystem;
 
     private void Start()
     {
@@ -35,9 +35,9 @@ public class PlayerView : MonoBehaviour
     {
         _attackButton.interactable = false;
         _defenceButton.interactable = false;
-        _logText.text = "Player‚ª“G‚É" +_buttleSystem.PlayerAttack.ToString() + "—^‚¦‚½";
-        await _buttleSystem.Attack();
-        _logText.text = "“G‚ªPlayer‚É" + _buttleSystem.EnemyAttack.ToString() + "—^‚¦‚½";
+        _logText.text = "Player‚ª“G‚É" +_battleSystem.PlayerAttack.ToString() + "—^‚¦‚½";
+        await _battleSystem.Attack();
+        _logText.text = "“G‚ªPlayer‚É" + _battleSystem.EnemyAttack.ToString() + "—^‚¦‚½";
         _attackButton.interactable = true;
         _defenceButton.interactable = true;
     }
@@ -46,8 +46,8 @@ public class PlayerView : MonoBehaviour
     {
         _attackButton.interactable = false;
         _defenceButton.interactable = false;
-        _logText.text = "–hŒä‚µ‚½" + _buttleSystem.EnemyAttack.ToString() + "‚­‚ç‚Á‚½";
-        await _buttleSystem.Defence();
+        _logText.text = "–hŒä‚µ‚½" + _battleSystem.EnemyAttack.ToString() + "‚­‚ç‚Á‚½";
+        await _battleSystem.Defence();
         _attackButton.interactable = true;
         _defenceButton.interactable = true;
     }

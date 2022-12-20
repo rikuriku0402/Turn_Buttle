@@ -156,8 +156,8 @@ MonoBehaviour:
   _enemyData: {fileID: 795094586}
   _playerAttack: 87
   _enemyAttack: 16
-  _dropCoin: 0
-  _decreaseCoin: 0
+  _dropCoin: 50
+  _decreaseCoin: 2
   _getExp: 50
 --- !u!4 &143919337
 Transform:
@@ -1786,7 +1786,7 @@ MonoBehaviour:
   _attackButton: {fileID: 470449592}
   _defenceButton: {fileID: 1271785554}
   _logText: {fileID: 1156879621}
-  _buttleSystem: {fileID: 143919336}
+  _battleSystem: {fileID: 143919336}
 --- !u!4 &1636949601
 Transform:
   m_ObjectHideFlags: 0
