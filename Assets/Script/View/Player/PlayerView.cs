@@ -22,6 +22,10 @@ public class PlayerView : MonoBehaviour
     Text _logText;
 
     [SerializeField]
+    [Header("ƒvƒŒƒCƒ„[HPƒeƒLƒXƒg")]
+    Text _playerHpText;
+
+    [SerializeField]
     [Header("ƒoƒgƒ‹ƒVƒXƒeƒ€")]
     Battle _battleSystem;
 
@@ -35,9 +39,10 @@ public class PlayerView : MonoBehaviour
     {
         _attackButton.interactable = false;
         _defenceButton.interactable = false;
-        _logText.text = "Player‚ª“G‚É" +_battleSystem.PlayerAttack.ToString() + "—^‚¦‚½";
+        _logText.text = "ƒvƒŒƒCƒ„[‚ÌUŒ‚";
         await _battleSystem.Attack();
-        _logText.text = "“G‚ªPlayer‚É" + _battleSystem.EnemyAttack.ToString() + "—^‚¦‚½";
+        _logText.text = "Player‚ª“G‚É" +_battleSystem.AllDamage.ToString() + "—^‚¦‚½";
+        _logText.text = "“G‚ªPlayer‚É" + _battleSystem.AllDamage.ToString() + "—^‚¦‚½";
         _attackButton.interactable = true;
         _defenceButton.interactable = true;
     }
@@ -46,8 +51,9 @@ public class PlayerView : MonoBehaviour
     {
         _attackButton.interactable = false;
         _defenceButton.interactable = false;
-        _logText.text = "–hŒä‚µ‚½" + _battleSystem.EnemyAttack.ToString() + "‚­‚ç‚Á‚½";
+        _logText.text = "“G‚ÌUŒ‚";
         await _battleSystem.Defence();
+        _logText.text = "–hŒä‚µ‚½" + _battleSystem.AllDamage.ToString() + "‚­‚ç‚Á‚½";
         _attackButton.interactable = true;
         _defenceButton.interactable = true;
     }
@@ -55,5 +61,6 @@ public class PlayerView : MonoBehaviour
     public void SetLife(int lifeValue)
     {
         _hpSlider.value = lifeValue;
+        _playerHpText.text = lifeValue.ToString() + _hpSlider.maxValue;
     }
 }

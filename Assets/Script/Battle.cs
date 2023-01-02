@@ -11,6 +11,8 @@ public class Battle : MonoBehaviour
 
     public int PlayerAttack => _playerAttack;
 
+    public int AllDamage => _allDamage;
+
     [SerializeField]
     [Header("プレイヤーデータ")]
     PlayerData _playerData;
@@ -28,6 +30,14 @@ public class Battle : MonoBehaviour
     int _enemyAttack;
 
     [SerializeField]
+    [Header("プレイヤーの防御力")]
+    int _playerDefence;
+
+    [SerializeField]
+    [Header("敵の防御力")]
+    int _enemyDefence;
+
+    [SerializeField]
     [Header("ゲットコイン数")]
     int _dropCoin;
 
@@ -39,25 +49,29 @@ public class Battle : MonoBehaviour
     [Header("ゲット経験値")]
     int _getExp;
 
+    private int _allDamage;
+
     public async UniTask Attack()
     {
         print("敵に攻撃");
+        _allDamage = _playerAttack - _enemyDefence;
         _enemyData.Damage(_playerAttack);
         await UniTask.Delay(TimeSpan.FromSeconds(1f));
         print("敵のターン");
         await UniTask.Delay(TimeSpan.FromSeconds(1f));
-        _playerData.Damage(_enemyAttack);
+        _playerData.Damage(_allDamage);
         HpCheck();
     }
 
     public async UniTask Defence()
     {
-        int allAttack = _enemyAttack - 10;
+        _allDamage = _playerAttack / _enemyDefence;
+        print(_allDamage);
         print("防御");
         await UniTask.Delay(TimeSpan.FromSeconds(1f));
         print("敵のターン");
         await UniTask.Delay(TimeSpan.FromSeconds(1f));
-        _playerData.Damage(allAttack);
+        _playerData.Damage(_allDamage);
         HpCheck();
     }
 

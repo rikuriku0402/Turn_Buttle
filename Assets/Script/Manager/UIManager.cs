@@ -71,9 +71,14 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         _expSlider.value = ScoreManager.Instance.Exp;
         _coinText.text = ScoreManager.Instance.AllCoin.ToString();
         _mushroomButton.onClick.AddListener(() => BuyItem(ShopManager.Instance.ItemPrices[0].Price));
-        _itemButton[0].Buttons.onClick.AddListener(() => BuyItem(ShopManager.Instance.ItemPrices[1].Price));
-        _itemButton[1].Buttons.onClick.AddListener(() => BuyItem(ShopManager.Instance.ItemPrices[2].Price));
-        _itemButton[2].Buttons.onClick.AddListener(() => BuyItem(ShopManager.Instance.ItemPrices[3].Price));
+        //_itemButton[0].Buttons.onClick.AddListener(() => BuyItem(ShopManager.Instance.ItemPrices[1].Price));
+        //_itemButton[1].Buttons.onClick.AddListener(() => BuyItem(ShopManager.Instance.ItemPrices[2].Price));
+        //_itemButton[2].Buttons.onClick.AddListener(() => BuyItem(ShopManager.Instance.ItemPrices[3].Price));
+        for (int i = 0; i < _itemButton.Count; i++)
+        {
+            print(i);
+            _itemButton[i].Buttons.onClick.AddListener(() => BuyItem(ShopManager.Instance.ItemPrices[i].Price));
+        }
         _shopOpenButton.onClick.AddListener(() => ImageOpen(_shopImage));
         _inventoryButton.onClick.AddListener(() => ImageOpen(_inventoryImage));
 
