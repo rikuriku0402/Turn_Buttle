@@ -30,6 +30,8 @@ Attack(),Defence()などで攻撃や防御をします。
 
 ## バトルシステム
 
+- [バトルクラス](https://github.com/rikuriku0402/Turn_Buttle/blob/master/Assets/Script/Battle.cs)
+
 # バトルクラス
 
 このバトルクラスではモデルクラスを参照しHpを取ってきて
